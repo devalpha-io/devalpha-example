@@ -77,5 +77,5 @@ vester({
   console.log('Received action:', action.type)
 })
 
-/* Open devalpha.herokuapp.com in your browser to start the backtest */
+/* Open devalpha.io in your browser to start the backtest */
 console.log('Waiting for DevAlpha...')

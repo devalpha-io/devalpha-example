@@ -10,11 +10,11 @@ Clone this repository.
 
 Install dependencies.
 
-`npm install`
+`$ npm install`
 
 Work the magic.
 
-`node index.js`
+`$ node index.js`
 
 ## Data
 
