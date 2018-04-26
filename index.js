@@ -1,11 +1,11 @@
 const path = require('path')
 const fs = require('fs');
 const _ = require('highland')
-const { vester } = require('vester')
+const { devalpha } = require('devalpha')
 
 /* Setup some constants */
 const FILENAME    = 'MSFT.csv'
-const START_DATE  = new Date('2017-01-01').getTime()
+const START_DATE  = new Date('2012-12-01').getTime()
 const END_DATE    = new Date('2017-12-30').getTime()
 
 /* Create a new stream and point it to the data */
@@ -31,8 +31,10 @@ const pipeline = _.pipeline(
 /* Denotes whether or not we've entered a position. */
 let hasPosition = false
 
-/* Initialize Vester! */
-vester({
+let i = 0
+
+/* Initialize the stream! */
+devalpha({
   startCapital: 100000,
   feeds: {
     msftStream: _(stream).through(pipeline)
@@ -43,28 +45,25 @@ vester({
 }, (context, action) => {
   if (action.type === 'msftStream') {
 
-    /* Hmmm... */
-    const magicNumber = Math.random()
-
-    /* Enter a long position */
-    if (!hasPosition && magicNumber > 0.5) {
-      context.order({
-        identifier: 'MSFT',
-        price: action.payload.close,
-        quantity: 1000
-      })
-      hasPosition = true
+    if (i % 3 === 0) {
+      if (hasPosition) {
+        context.order({
+          identifier: 'MSFT',
+          price: action.payload.close,
+          quantity: -1000
+        })
+        hasPosition = false
+      } else {
+        context.order({
+          identifier: 'MSFT',
+          price: action.payload.close,
+          quantity: 1000
+        })
+        hasPosition = true
+      }
     }
 
-    /* Exit the long position */
-    if (hasPosition && magicNumber <= 0.5) {
-      context.order({
-        identifier: 'MSFT',
-        price: action.payload.close,
-        quantity: -1000
-      })
-      hasPosition = false
-    }
+    i += 1
 
   }
 })

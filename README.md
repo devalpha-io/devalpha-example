@@ -1,6 +1,6 @@
 # DevAlpha example
 
-A simple example of piping data from Vester to DevAlpha in order to see charts and various backtesting metrics.
+A simple example of using DevAlpha to see charts and various backtesting metrics.
 
 ## Usage
 

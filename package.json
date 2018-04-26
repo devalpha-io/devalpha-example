@@ -11,6 +11,6 @@
   "license": "MIT",
   "dependencies": {
     "highland": "^2.13.0",
-    "vester": "^0.1.1"
+    "devalpha": "^0.1.2"
   }
 }
