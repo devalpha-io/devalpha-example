@@ -45,25 +45,28 @@ devalpha({
 }, (context, action) => {
   if (action.type === 'msftStream') {
 
-    if (i % 3 === 0) {
-      if (hasPosition) {
-        context.order({
-          identifier: 'MSFT',
-          price: action.payload.close,
-          quantity: -1000
-        })
-        hasPosition = false
-      } else {
-        context.order({
-          identifier: 'MSFT',
-          price: action.payload.close,
-          quantity: 1000
-        })
-        hasPosition = true
-      }
+    /* Hmmm... */
+    const magicNumber = Math.random()
+
+    /* Enter a long position */
+    if (!hasPosition && magicNumber > 0.5) {
+      context.order({
+        identifier: 'MSFT',
+        price: action.payload.close,
+        quantity: 1000
+      })
+      hasPosition = true
     }
 
-    i += 1
+    /* Exit the long position */
+    if (hasPosition && magicNumber <= 0.5) {
+      context.order({
+        identifier: 'MSFT',
+        price: action.payload.close,
+        quantity: -1000
+      })
+      hasPosition = false
+    }
 
   }
 })
