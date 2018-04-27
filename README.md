@@ -16,7 +16,7 @@ Run the script.
 
 `$ node index.js`
 
-Now, open [devalpha.io](http://devalpha.io) in your favorite browser to see how your strategy performs.
+Now, open [devalpha.io](https://devalpha.io) in your favorite browser to see how your strategy performs.
 
 ## Data
 
