@@ -14,13 +14,19 @@ Install dependencies.
 
 Run the script.
 
-`$ node index.js`
+`$ npm start`
 
 Now, open [devalpha.io](https://devalpha.io) in your favorite browser to see how your strategy performs.
 
+## Development
+
+`$ npm run dev`
+
+This will activate a watcher on `index.js` so that you can automatically re-run your backtests when the file changes.
+
 ## Data
 
-More free data like the included `MSFT.csv` can be found in the [Quandl WIKI Prices database](https://www.quandl.com/databases/WIKIP). Go check it out!
+More free data like the included `MSFT.csv` can be found in the [Quandl WIKI Prices database](https://www.quandl.com/databases/WIKIP).
 
 ## License
 

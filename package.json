@@ -1,16 +1,17 @@
 {
   "name": "devalpha-example",
   "version": "0.0.0",
-  "description": "",
+  "description": "An example of how to use the DevAlpha platform.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon index.js"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "devalpha": "^0.1.2",
     "highland": "^2.13.0",
-    "devalpha": "^0.1.2"
+    "nodemon": "^1.17.3"
   }
 }

@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('fs');
 const _ = require('highland')
-const { devalpha } = require('devalpha')
+const { devalpha } = require('../devalpha-node/dist')
 
 /* Setup some constants */
 const FILENAME    = 'MSFT.csv'
