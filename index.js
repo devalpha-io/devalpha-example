@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('fs');
 const _ = require('highland')
-const { devalpha } = require('devalpha')
+const { createTrader } = require('devalpha')
 
 /* Setup some constants */
 const FILENAME    = 'MSFT.csv'
@@ -9,7 +9,7 @@ const START_DATE  = new Date('2012-12-01').getTime()
 const END_DATE    = new Date('2017-12-30').getTime()
 
 /* Create a new stream and point it to the data */
-const stream = fs.createReadStream(path.resolve(FILENAME))
+const fileStream = fs.createReadStream(path.resolve(FILENAME))
 
 /* Create a pipeline for parsing the input */
 const pipeline = _.pipeline(
@@ -34,10 +34,10 @@ let hasPosition = false
 let i = 0
 
 /* Initialize the stream! */
-devalpha({
+createTrader({
   startCapital: 100000,
   feeds: {
-    msftStream: _(stream).through(pipeline)
+    msftStream: _(fileStream).through(pipeline)
   },
   dashboard: {
     active: true
