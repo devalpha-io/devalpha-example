@@ -2,25 +2,35 @@
 
 A simple example of using DevAlpha to see charts and various backtesting metrics.
 
+**Note**: DevAlpha is currently running in private beta, and so you will not be able to access the backtester until you have [signed up for the private beta](https://devalpha.io/)!
+
 ## Usage
 
 Clone this repository.
 
-`$ git clone https://github.com/fhqvst/devalpha-example.git`
-
+```bash
+git clone https://github.com/devalpha-io/devalpha-example.git
+cd devalpha-example
+```
 Install dependencies.
 
-`$ npm install`
+```bash
+npm install
+```
 
-Run the script.
+Run the example.
 
-`$ npm start`
+```bash
+npm start
+```
 
-Now, open [devalpha.io](https://devalpha.io) in your favorite browser to see how your strategy performs.
+Now, open [beta.devalpha.io](https://beta.devalpha.io) in your favorite browser, sign in, and open the backtester to see how your strategy performs.
 
 ## Development
 
-`$ npm run dev`
+```
+npm run dev
+```
 
 This will activate a watcher on `index.js` so that you can automatically re-run your backtests when the file changes.
 
