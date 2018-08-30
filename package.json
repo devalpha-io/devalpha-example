@@ -11,7 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "devalpha": "^0.3.3",
-    "highland": "^2.13.0",
-    "nodemon": "^1.17.3"
+    "highland": "^3.0.0-beta.6",
+    "nodemon": "^1.18.4"
   }
 }

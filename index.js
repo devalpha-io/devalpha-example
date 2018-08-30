@@ -11,10 +11,10 @@ const END_DATE    = new Date('2017-12-30').getTime()
 /* Create a new stream and point it to the data */
 const fileStream = fs.createReadStream(path.resolve(FILENAME))
 
-/* Create a pipeline for parsing the input */
-const pipeline = _.pipeline(
-  _.split(),
-  _.map((item) => {
+/* Parse the stream */
+const msftStream = _(fileStream)
+  .split()
+  .map((item) => {
     const parsed = item.split(',')
     return {
       identifier: parsed[0],
@@ -24,20 +24,17 @@ const pipeline = _.pipeline(
       low: parseFloat(parsed[4]),
       close: parseFloat(parsed[5])
     }
-  }),
-  _.filter((item) => item.timestamp >= START_DATE && item.timestamp <= END_DATE)
-)
+  })
+  .filter((item) => item.timestamp >= START_DATE && item.timestamp <= END_DATE)
 
 /* Denotes whether or not we've entered a position. */
 let hasPosition = false
-
-let i = 0
 
 /* Initialize the stream! */
 createTrader({
   startCapital: 100000,
   feeds: {
-    msftStream: _(fileStream).through(pipeline)
+    msftStream
   },
   dashboard: {
     active: true
