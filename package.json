@@ -10,7 +10,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "devalpha": "^0.3.0",
+    "devalpha": "^0.3.3",
     "highland": "^2.13.0",
     "nodemon": "^1.17.3"
   }
