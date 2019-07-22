@@ -32,6 +32,7 @@ let hasPosition = false
 
 /* Initialize the stream! */
 createTrader({
+  project: '7WyW7pTjIwjtZd4HYhKh',
   startCapital: 100000,
   feeds: {
     msftStream
